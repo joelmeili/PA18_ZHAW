@@ -16,6 +16,4 @@ https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git
 Visual Studio Code makes it easier to commit changes and manage the github repository locally.
 
 - Download and install Visual Studio Code from https://code.visualstudio.com/download
-- Follow the steps shown on the following website
-
-https://code.visualstudio.com/docs/editor/versioncontrol
+- Follow the steps shown on the following website https://code.visualstudio.com/docs/editor/versioncontrol
