@@ -1,9 +1,3 @@
----
-title: Introduction to our project - Asset allocation
-author: Joël Meili and Fabio Bührer
-date: 18.09.2018
----
-
 # How to use GitHub and RStudio for version control
 ## Create a GitHub account
 - Visit https://github.com and sign up for a GitHub-Account
