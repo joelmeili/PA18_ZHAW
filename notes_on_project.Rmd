@@ -2,8 +2,7 @@
 title: "Notes on Project"
 author: "Joël Meili"
 date: "27 September 2018"
-output: md_document
-always_allow_html: yes
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
