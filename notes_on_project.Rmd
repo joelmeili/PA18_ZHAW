@@ -1,0 +1,31 @@
+---
+title: "Notes on Project"
+author: "Joël Meili"
+date: "27 September 2018"
+output: md_document
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
+library(gridExtra)
+source('read_data.R')
+```
+
+# 1. Step - Value-at-Risk
+- We first calculated the Value-at-Risk for all asset classes at confidence intervals of 84%, 97.5% and 99.9%. The result is shown in the following table:
+```{r echo=F}
+data.var %>% group_by(Asset) %>% kable() %>% kable_styling()
+```
+- Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
+- We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
+- Although we can observe a fat tailed distribution on S&P 500 on yearly returns and also a bimodal distribution on JPY on yearly returns
+```{r echo=F}
+grid.arrange(g.daily, g.weekly, g.monthly, g.yearly, nrow=2)
+```
+
+
+
+
+

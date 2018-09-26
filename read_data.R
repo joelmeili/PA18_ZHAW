@@ -5,7 +5,10 @@
 
 # - load packages
 library(readxl)
+library(tibble)
+library(purrr)
 library(dplyr)
+library(tidyr)
 library(lubridate)
 library(ggplot2)
 library(ggthemes)
@@ -77,6 +80,7 @@ g.daily <- ggplot(data=data.daily, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
+  ggtitle("Distribution of daily returns")+
   ggsave('return_distribution_daily.png')
 
 g.weekly <- ggplot(data.weekly, aes(x=Value))+
@@ -85,6 +89,7 @@ g.weekly <- ggplot(data.weekly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
+  ggtitle("Distribution of weekly returns")+
   ggsave('return_distribution_weekly.png')
 
 g.monthly <- ggplot(data.monthly, aes(x=Value))+
@@ -93,6 +98,7 @@ g.monthly <- ggplot(data.monthly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
+  ggtitle("Distribution of monthly returns")+
   ggsave('return_distribution_monthly.png')
 
 g.yearly <- ggplot(data.yearly, aes(x=Value))+
@@ -101,4 +107,5 @@ g.yearly <- ggplot(data.yearly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
+  ggtitle("Distribution of yearly return")+
   ggsave('return_distribution_yearly.png')
