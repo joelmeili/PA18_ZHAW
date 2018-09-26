@@ -8,3 +8,4 @@ Sources that may be relevant to our work on the project:
 - https://www.sciencedirect.com/science/article/pii/S0378475403001010
 - http://www.cfapubs.org/doi/abs/10.2469/faj.v67.n2.5
 - https://www.sciencedirect.com/science/article/pii/S0378426600001606
+- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.353.2457
