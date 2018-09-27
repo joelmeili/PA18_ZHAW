@@ -570,6 +570,7 @@ Yearly
 </tr>
 </tbody>
 </table>
+
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 -   We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
 -   Although we can observe a fat tailed distribution on S&P 500 on yearly returns and also a bimodal distribution on JPY on yearly returns
