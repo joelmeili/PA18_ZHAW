@@ -28,26 +28,26 @@ data.yearly <- data.long %>% group_by(Year=year(Date), Asset) %>% summarise(Valu
 conf.level <- list(0.84, 0.975, 0.999)
 
 daily.var <- lapply(conf.level, FUN=function(x){
-  temp <- data.daily %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=x))
-  colnames(temp)[2] <- paste("VaR", paste0(x*100, "%"))
+  temp <- data.daily %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=(1-x)))
+  colnames(temp)[2] <- paste("VaR @", paste0(x*100, "%"))
   temp
 }) %>% reduce(inner_join, by="Asset") %>% gather(VaR, Value, 2:(length(conf.level)+1))
 daily.var$Horizon <- "Daily"
 weekly.var <- lapply(conf.level, FUN=function(x){
-  temp <- data.weekly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=x))
-  colnames(temp)[2] <- paste("VaR", paste0(x*100, "%"))
+  temp <- data.weekly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=(1-x)))
+  colnames(temp)[2] <- paste("VaR @", paste0(x*100, "%"))
   temp
 }) %>% reduce(inner_join, by="Asset") %>% gather(VaR, Value, 2:(length(conf.level)+1))
 weekly.var$Horizon <- "Weekly"
 monthly.var <- lapply(conf.level, FUN=function(x){
-  temp <- data.monthly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=x))
-  colnames(temp)[2] <- paste("VaR", paste0(x*100, "%"))
+  temp <- data.monthly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=(1-x)))
+  colnames(temp)[2] <- paste("VaR @", paste0(x*100, "%"))
   temp
 }) %>% reduce(inner_join, by="Asset") %>% gather(VaR, Value, 2:(length(conf.level)+1))
 monthly.var$Horizon <- "Monthly"
 yearly.var <- lapply(conf.level, FUN=function(x){
-  temp <- data.yearly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=x))
-  colnames(temp)[2] <- paste("VaR", paste0(x*100, "%"))
+  temp <- data.yearly %>% group_by(Asset) %>% summarise(VaR=quantile(Value, p=(1-x)))
+  colnames(temp)[2] <- paste("VaR @", paste0(x*100, "%"))
   temp
 }) %>% reduce(inner_join, by="Asset") %>% gather(VaR, Value, 2:(length(conf.level)+1))
 yearly.var$Horizon <- "Yearly"

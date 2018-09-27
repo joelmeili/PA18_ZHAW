@@ -1,5 +1,4 @@
 # First Step - Value-at-Risk
-==========================
 
 -   We first calculated the Value-at-Risk for all asset classes at confidence intervals of 84%, 97.5% and 99.9%. The result is shown in the following table:
 
@@ -13,13 +12,13 @@ Asset
 Horizon
 </th>
 <th style="text-align:right;">
-VaR 84%
+VaR @ 84%
 </th>
 <th style="text-align:right;">
-VaR 97.5%
+VaR @ 97.5%
 </th>
 <th style="text-align:right;">
-VaR 99.9%
+VaR @ 99.9%
 </th>
 </tr>
 </thead>
@@ -32,30 +31,13 @@ DAX30
 Daily
 </td>
 <td style="text-align:right;">
-0.011200
+-0.0106000
 </td>
 <td style="text-align:right;">
-0.0271000
+-0.0291775
 </td>
 <td style="text-align:right;">
-0.0651339
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-DAX30
-</td>
-<td style="text-align:left;">
-Weekly
-</td>
-<td style="text-align:right;">
-0.026900
-</td>
-<td style="text-align:right;">
-0.0562000
-</td>
-<td style="text-align:right;">
-0.1268202
+-0.0728910
 </td>
 </tr>
 <tr>
@@ -63,16 +45,33 @@ Weekly
 DAX30
 </td>
 <td style="text-align:left;">
+Weekly
+</td>
+<td style="text-align:right;">
+-0.0258000
+</td>
+<td style="text-align:right;">
+-0.0668850
+</td>
+<td style="text-align:right;">
+-0.1376403
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DAX30
+</td>
+<td style="text-align:left;">
 Monthly
 </td>
 <td style="text-align:right;">
-0.057280
+-0.0497600
 </td>
 <td style="text-align:right;">
-0.1156750
+-0.1451500
 </td>
 <td style="text-align:right;">
-0.1767750
+-0.2716110
 </td>
 </tr>
 <tr>
@@ -83,13 +82,13 @@ DAX30
 Yearly
 </td>
 <td style="text-align:right;">
-0.264004
+-0.1503080
 </td>
 <td style="text-align:right;">
-0.3739600
+-0.5564800
 </td>
 <td style="text-align:right;">
-0.4863184
+-0.6189952
 </td>
 </tr>
 <tr>
@@ -100,13 +99,13 @@ EUR
 Daily
 </td>
 <td style="text-align:right;">
-0.005600
+-0.0055000
 </td>
 <td style="text-align:right;">
-0.0130000
+-0.0132000
 </td>
 <td style="text-align:right;">
-0.0261391
+-0.0257000
 </td>
 </tr>
 <tr>
@@ -117,13 +116,13 @@ EUR
 Weekly
 </td>
 <td style="text-align:right;">
-0.012844
+-0.0130000
 </td>
 <td style="text-align:right;">
-0.0281800
+-0.0276475
 </td>
 <td style="text-align:right;">
-0.0510842
+-0.0609813
 </td>
 </tr>
 <tr>
@@ -134,13 +133,13 @@ EUR
 Monthly
 </td>
 <td style="text-align:right;">
-0.027480
+-0.0282400
 </td>
 <td style="text-align:right;">
-0.0630000
+-0.0651125
 </td>
 <td style="text-align:right;">
-0.0861395
+-0.1076930
 </td>
 </tr>
 <tr>
@@ -151,13 +150,13 @@ EUR
 Yearly
 </td>
 <td style="text-align:right;">
-0.123352
+-0.1289680
 </td>
 <td style="text-align:right;">
-0.1958800
+-0.1816600
 </td>
 <td style="text-align:right;">
-0.1981072
+-0.1934104
 </td>
 </tr>
 <tr>
@@ -168,30 +167,13 @@ Gold
 Daily
 </td>
 <td style="text-align:right;">
-0.007900
+-0.0072000
 </td>
 <td style="text-align:right;">
-0.0201000
+-0.0216000
 </td>
 <td style="text-align:right;">
-0.0510692
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Gold
-</td>
-<td style="text-align:left;">
-Weekly
-</td>
-<td style="text-align:right;">
-0.018900
-</td>
-<td style="text-align:right;">
-0.0432000
-</td>
-<td style="text-align:right;">
-0.1032742
+-0.0575782
 </td>
 </tr>
 <tr>
@@ -199,16 +181,33 @@ Weekly
 Gold
 </td>
 <td style="text-align:left;">
+Weekly
+</td>
+<td style="text-align:right;">
+-0.0191440
+</td>
+<td style="text-align:right;">
+-0.0472325
+</td>
+<td style="text-align:right;">
+-0.0942123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gold
+</td>
+<td style="text-align:left;">
 Monthly
 </td>
 <td style="text-align:right;">
-0.044360
+-0.0406800
 </td>
 <td style="text-align:right;">
-0.0944750
+-0.0845618
 </td>
 <td style="text-align:right;">
-0.1409405
+-0.1746725
 </td>
 </tr>
 <tr>
@@ -219,13 +218,13 @@ Gold
 Yearly
 </td>
 <td style="text-align:right;">
-0.148964
+-0.1169640
 </td>
 <td style="text-align:right;">
-0.2246400
+-0.3286600
 </td>
 <td style="text-align:right;">
-0.2512896
+-0.3361864
 </td>
 </tr>
 <tr>
@@ -236,13 +235,13 @@ JPY
 Daily
 </td>
 <td style="text-align:right;">
-0.005500
+-0.0056000
 </td>
 <td style="text-align:right;">
-0.0138775
+-0.0130000
 </td>
 <td style="text-align:right;">
-0.0341769
+-0.0300173
 </td>
 </tr>
 <tr>
@@ -253,13 +252,13 @@ JPY
 Weekly
 </td>
 <td style="text-align:right;">
-0.013200
+-0.0130582
 </td>
 <td style="text-align:right;">
-0.0329900
+-0.0287669
 </td>
 <td style="text-align:right;">
-0.0717893
+-0.0566583
 </td>
 </tr>
 <tr>
@@ -270,13 +269,13 @@ JPY
 Monthly
 </td>
 <td style="text-align:right;">
-0.031440
+-0.0284800
 </td>
 <td style="text-align:right;">
-0.0637125
+-0.0638000
 </td>
 <td style="text-align:right;">
-0.1390835
+-0.0958057
 </td>
 </tr>
 <tr>
@@ -287,13 +286,13 @@ JPY
 Yearly
 </td>
 <td style="text-align:right;">
-0.105696
+-0.1705000
 </td>
 <td style="text-align:right;">
-0.2181600
+-0.1894400
 </td>
 <td style="text-align:right;">
-0.2310624
+-0.1968896
 </td>
 </tr>
 <tr>
@@ -304,13 +303,13 @@ Oil
 Daily
 </td>
 <td style="text-align:right;">
-0.017400
+-0.0168000
 </td>
 <td style="text-align:right;">
-0.0440424
+-0.0440000
 </td>
 <td style="text-align:right;">
-0.1134979
+-0.1198896
 </td>
 </tr>
 <tr>
@@ -321,13 +320,13 @@ Oil
 Weekly
 </td>
 <td style="text-align:right;">
-0.040944
+-0.0392440
 </td>
 <td style="text-align:right;">
-0.0877850
+-0.1003475
 </td>
 <td style="text-align:right;">
-0.1909670
+-0.2540138
 </td>
 </tr>
 <tr>
@@ -338,13 +337,13 @@ Oil
 Monthly
 </td>
 <td style="text-align:right;">
-0.089440
+-0.0873000
 </td>
 <td style="text-align:right;">
-0.1835000
+-0.2211125
 </td>
 <td style="text-align:right;">
-0.3488840
+-0.3928355
 </td>
 </tr>
 <tr>
@@ -355,13 +354,13 @@ Oil
 Yearly
 </td>
 <td style="text-align:right;">
-0.409308
+-0.3716760
 </td>
 <td style="text-align:right;">
-0.7594800
+-0.7754600
 </td>
 <td style="text-align:right;">
-0.7985712
+-0.8809064
 </td>
 </tr>
 <tr>
@@ -372,13 +371,13 @@ SP500
 Daily
 </td>
 <td style="text-align:right;">
-0.008400
+-0.0080000
 </td>
 <td style="text-align:right;">
-0.0213775
+-0.0234000
 </td>
 <td style="text-align:right;">
-0.0582256
+-0.0772346
 </td>
 </tr>
 <tr>
@@ -389,13 +388,13 @@ SP500
 Weekly
 </td>
 <td style="text-align:right;">
-0.019800
+-0.0183000
 </td>
 <td style="text-align:right;">
-0.0435950
+-0.0470000
 </td>
 <td style="text-align:right;">
-0.0997209
+-0.1289795
 </td>
 </tr>
 <tr>
@@ -406,13 +405,13 @@ SP500
 Monthly
 </td>
 <td style="text-align:right;">
-0.043280
+-0.0295200
 </td>
 <td style="text-align:right;">
-0.0827750
+-0.0911000
 </td>
 <td style="text-align:right;">
-0.1161420
+-0.2129345
 </td>
 </tr>
 <tr>
@@ -423,13 +422,13 @@ SP500
 Yearly
 </td>
 <td style="text-align:right;">
-0.206228
+-0.0519760
 </td>
 <td style="text-align:right;">
-0.2626000
+-0.3156200
 </td>
 <td style="text-align:right;">
-0.2733520
+-0.4911848
 </td>
 </tr>
 <tr>
@@ -440,13 +439,13 @@ UKGilt
 Daily
 </td>
 <td style="text-align:right;">
-0.004000
+-0.0037000
 </td>
 <td style="text-align:right;">
-0.0089000
+-0.0094000
 </td>
 <td style="text-align:right;">
-0.0235955
+-0.0202391
 </td>
 </tr>
 <tr>
@@ -457,13 +456,13 @@ UKGilt
 Weekly
 </td>
 <td style="text-align:right;">
-0.009500
+-0.0084000
 </td>
 <td style="text-align:right;">
-0.0194000
+-0.0199000
 </td>
 <td style="text-align:right;">
-0.0483648
+-0.0362259
 </td>
 </tr>
 <tr>
@@ -474,13 +473,13 @@ UKGilt
 Monthly
 </td>
 <td style="text-align:right;">
-0.020720
+-0.0178800
 </td>
 <td style="text-align:right;">
-0.0457001
+-0.0397375
 </td>
 <td style="text-align:right;">
-0.0808720
+-0.0731660
 </td>
 </tr>
 <tr>
@@ -491,13 +490,13 @@ UKGilt
 Yearly
 </td>
 <td style="text-align:right;">
-0.103120
+-0.0472920
 </td>
 <td style="text-align:right;">
-0.1509400
+-0.1178400
 </td>
 <td style="text-align:right;">
-0.1722136
+-0.1498656
 </td>
 </tr>
 <tr>
@@ -508,13 +507,13 @@ USTreas
 Daily
 </td>
 <td style="text-align:right;">
-0.003600
+-0.0032000
 </td>
 <td style="text-align:right;">
-0.0082000
+-0.0083000
 </td>
 <td style="text-align:right;">
-0.0183391
+-0.0170391
 </td>
 </tr>
 <tr>
@@ -525,13 +524,13 @@ USTreas
 Weekly
 </td>
 <td style="text-align:right;">
-0.009244
+-0.0073440
 </td>
 <td style="text-align:right;">
-0.0176950
+-0.0177475
 </td>
 <td style="text-align:right;">
-0.0368080
+-0.0345540
 </td>
 </tr>
 <tr>
@@ -542,13 +541,13 @@ USTreas
 Monthly
 </td>
 <td style="text-align:right;">
-0.021500
+-0.0136200
 </td>
 <td style="text-align:right;">
-0.0423250
+-0.0355250
 </td>
 <td style="text-align:right;">
-0.0792715
+-0.0571165
 </td>
 </tr>
 <tr>
@@ -559,18 +558,17 @@ USTreas
 Yearly
 </td>
 <td style="text-align:right;">
-0.117776
+-0.0311080
 </td>
 <td style="text-align:right;">
-0.1652400
+-0.0870200
 </td>
 <td style="text-align:right;">
-0.1953456
+-0.0959288
 </td>
 </tr>
 </tbody>
 </table>
-
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 -   We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
 -   Although we can observe a fat tailed distribution on S&P 500 on yearly returns and also a bimodal distribution on JPY on yearly returns
