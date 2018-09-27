@@ -15,11 +15,13 @@ library(gridExtra)
 source('read_data.R')
 ```
 
-# 1. Step - Value-at-Risk
+# First Step - Value-at-Risk
 - We first calculated the Value-at-Risk for all asset classes at confidence intervals of 84%, 97.5% and 99.9%. The result is shown in the following table:
 
 ```{r echo=F}
-data.var %>% group_by(Asset) %>% kable() %>% kable_styling()
+data.var <- data.var %>% spread(VaR, Value)
+data.var$Horizon <- factor(data.var$Horizon, c("Daily", "Weekly", "Monthly", "Yearly"))
+data.var %>% arrange(Asset, Horizon) %>% kable() %>% kable_styling()
 ```
 - Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 - We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
