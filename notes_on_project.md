@@ -1,4 +1,5 @@
-# First Step - Value-at-Risk
+First Step - Value-at-Risk
+==========================
 
 -   We first calculated the Value-at-Risk for all asset classes at confidence intervals of 84%, 97.5% and 99.9%. The result is shown in the following table:
 
@@ -571,7 +572,5 @@ Yearly
 </table>
 
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
--   We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
--   Although we can observe a fat tailed distribution on S&P 500 on yearly returns and also a bimodal distribution on JPY on yearly returns
 
-![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-1.png)
+![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-1.png)![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-2.png)

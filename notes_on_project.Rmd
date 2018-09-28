@@ -25,11 +25,11 @@ data.var %>% arrange(Asset, Horizon) %>% kable() %>% kable_styling()
 ```
 
 - Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
-- We observed that the distributions follow the assumptions of normal distributed returns almost perfectly
-- Although we can observe a fat tailed distribution on S&P 500 on yearly returns and also a bimodal distribution on JPY on yearly returns
 
 ```{r echo=F}
-grid.arrange(g.daily, g.weekly, g.monthly, g.yearly, nrow=2)
+grid.arrange(h.daily, h.weekly, h.monthly, h.yearly, nrow=2)
+grid.arrange(qq.daily, qq.weekly, qq.monthly, qq.yearly, nrow=2)
+
 ```
 
 
