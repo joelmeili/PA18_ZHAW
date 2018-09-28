@@ -157,7 +157,7 @@ lapply(lst, FUN=function(x){
     title(paste(paste("Distribution of standardized", paste(string, "returns -")), y))
     dev.off()
     
-    png(paste0(paste0("figures/return_qq_daily_", paste0(string, y)), ".png"))
+    png(paste0(paste0("figures/return_qq_daily_", paste0(paste0(string, "_"), y)), ".png"))
     qqPlot(x$Value[which(x$Asset==y)], xlab="Theoretical Quantiles", ylab="Sample Quantiles")
     title(paste(paste("QQ-Plot of standardized", paste(string, "returns -")), y)) 
     dev.off()
