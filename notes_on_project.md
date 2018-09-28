@@ -1,5 +1,4 @@
-First Step - Value-at-Risk
-==========================
+# First Step - Value-at-Risk
 
 -   We first calculated the Value-at-Risk for all asset classes at confidence intervals of 84%, 97.5% and 99.9%. The result is shown in the following table:
 

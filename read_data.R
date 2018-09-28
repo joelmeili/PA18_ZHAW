@@ -60,72 +60,24 @@ norm.weekly <- data.weekly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=
 norm.monthly <- data.monthly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=sd(Value))
 norm.yearly <- data.yearly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=sd(Value))
 
-n.sample = 1e4
-
-rnorm.daily <- do.call("rbind", lapply(as.list(norm.daily$Asset), FUN=function(x){
-  tibble("Asset"=x, "Value"=rnorm(n.sample, mean=as.numeric(norm.daily[which(norm.daily$Asset==x), "mu"]), sd=as.numeric(norm.daily[which(norm.daily$Asset==x), "sd"])))
-}))
-rnorm.weekly <- do.call("rbind", lapply(as.list(norm.weekly$Asset), FUN=function(x){
-  tibble("Asset"=x, "Value"=rnorm(n.sample, mean=as.numeric(norm.weekly[which(norm.weekly$Asset==x), "mu"]), sd=as.numeric(norm.weekly[which(norm.weekly$Asset==x), "sd"])))
-}))
-rnorm.monthly <- do.call("rbind", lapply(as.list(norm.monthly$Asset), FUN=function(x){
-  tibble("Asset"=x, "Value"=rnorm(n.sample, mean=as.numeric(norm.monthly[which(norm.monthly$Asset==x), "mu"]), sd=as.numeric(norm.monthly[which(norm.monthly$Asset==x), "sd"])))
-}))
-rnorm.yearly <- do.call("rbind", lapply(as.list(norm.yearly$Asset), FUN=function(x){
-  tibble("Asset"=x, "Value"=rnorm(n.sample, mean=as.numeric(norm.yearly[which(norm.yearly$Asset==x), "mu"]), sd=as.numeric(norm.yearly[which(norm.yearly$Asset==x), "sd"])))
-}))
-
 std.daily$Value <- (std.daily$Value-mean(std.daily$Value))/sd(std.daily$Value)
+std.daily$Freq <- "daily"
 std.weekly$Value <- (std.weekly$Value-mean(std.weekly$Value))/sd(std.weekly$Value)
+std.weekly$Freq <- "weekly"
 std.monthly$Value <- (std.monthly$Value-mean(std.monthly$Value))/sd(std.monthly$Value)
+std.monthly$Freq <- "monthly"
 std.yearly$Value <- (std.yearly$Value-mean(std.yearly$Value))/sd(std.yearly$Value)
+std.yearly$Freq <- "yearly"
 
-# - plot distribution of returns for each category e.g. daily data
-g.daily <- ggplot(data=data.daily, aes(x=Value))+
-  geom_density()+
-  geom_density(data=rnorm.daily, aes(x=Value), colour='red')+
-  facet_wrap(~Asset)+
-  xlab(NULL)+
-  ylab(NULL)+
-  ggtitle("Distribution of daily returns")+
-  ggsave('return_distribution_daily.png')
-
-g.weekly <- ggplot(data.weekly, aes(x=Value))+
-  geom_density()+
-  geom_density(data=rnorm.weekly, aes(x=Value), colour='red')+
-  facet_wrap(~Asset)+
-  xlab(NULL)+
-  ylab(NULL)+
-  ggtitle("Distribution of weekly returns")+
-  ggsave('return_distribution_weekly.png')
-
-g.monthly <- ggplot(data.monthly, aes(x=Value))+
-  geom_density()+
-  geom_density(data=rnorm.monthly, aes(x=Value), colour='red')+
-  facet_wrap(~Asset)+
-  xlab(NULL)+
-  ylab(NULL)+
-  ggtitle("Distribution of monthly returns")+
-  ggsave('return_distribution_monthly.png')
-
-g.yearly <- ggplot(data.yearly, aes(x=Value))+
-  geom_density()+
-  geom_density(data=rnorm.yearly, aes(x=Value), colour='red')+
-  facet_wrap(~Asset)+
-  xlab(NULL)+
-  ylab(NULL)+
-  ggtitle("Distribution of yearly return")+
-  ggsave('return_distribution_yearly.png')
-
-# - standardised distribution plots
-
+# - standardized distribution plots
 h.daily <- ggplot(std.daily, aes(x=Value))+
   geom_density()+
   stat_function(fun=dnorm, colour='red')+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
-  ggtitle("Distribution of standardized daily returns")
+  ggtitle("Distribution of standardized daily returns")+
+  ggsave("figures/return_distribution_daily.png")
 
 h.weekly <- ggplot(std.weekly, aes(x=Value))+
   geom_density()+
@@ -133,7 +85,8 @@ h.weekly <- ggplot(std.weekly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
-  ggtitle("Distribution of standardized weekly returns")
+  ggtitle("Distribution of standardized weekly returns")+
+  ggsave("figures/return_distribution_weekly.png")
 
 h.monthly <- ggplot(std.monthly, aes(x=Value))+
   geom_density()+
@@ -141,7 +94,8 @@ h.monthly <- ggplot(std.monthly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
-  ggtitle("Distribution of standardized monthly returns")
+  ggtitle("Distribution of standardized monthly returns")+
+  ggsave("figures/return_distribution_monthly.png")
 
 h.yearly <- ggplot(std.yearly, aes(x=Value))+
   geom_density()+
@@ -149,15 +103,18 @@ h.yearly <- ggplot(std.yearly, aes(x=Value))+
   facet_wrap(~Asset)+
   xlab(NULL)+
   ylab(NULL)+
-  ggtitle("Distribution of standardized yearly returns")
+  ggtitle("Distribution of standardized yearly returns")+
+  ggsave("figures/return_distribution_yearly.png")
 
+# - standardized qq-plots
 qq.daily <- ggplot(std.daily, aes(sample=Value))+
   stat_qq(geom="line")+
   stat_qq_line(colour='red')+
   facet_wrap(~Asset)+
   xlab("Theoretical Quantiles")+
   ylab("Sample Quantiles")+
-  ggtitle("QQ-Plot of daily returns")
+  ggtitle("QQ-Plot of daily returns")+
+  ggsave("figures/return_qq_daily.png")
 
 qq.weekly <- ggplot(std.weekly, aes(sample=Value))+
   stat_qq(geom="line")+
@@ -165,7 +122,8 @@ qq.weekly <- ggplot(std.weekly, aes(sample=Value))+
   facet_wrap(~Asset)+
   xlab("Theoretical Quantiles")+
   ylab("Sample Quantiles")+
-  ggtitle("QQ-Plot of weekly returns")
+  ggtitle("QQ-Plot of weekly returns")+
+  ggsave("figures/return_qq_weekly.png")
 
 qq.monthly <- ggplot(std.monthly, aes(sample=Value))+
   stat_qq(geom="line")+
@@ -174,7 +132,8 @@ qq.monthly <- ggplot(std.monthly, aes(sample=Value))+
   facet_wrap(~Asset)+
   xlab("Theoretical Quantiles")+
   ylab("Sample Quantiles")+
-  ggtitle("QQ-Plot of monthly returns")
+  ggtitle("QQ-Plot of monthly returns")+
+  ggsave("figures/return_qq_monthly.png")
 
 qq.yearly <- ggplot(std.yearly, aes(sample=Value))+
   stat_qq(geom="line")+
@@ -182,4 +141,25 @@ qq.yearly <- ggplot(std.yearly, aes(sample=Value))+
   facet_wrap(~Asset)+
   xlab("Theoretical Quantiles")+
   ylab("Sample Quantiles")+
-  ggtitle("QQ-Plot of yearly returns")
+  ggtitle("QQ-Plot of yearly returns")+
+  ggsave("figures/return_qq_yearly.png")
+
+# - standardized normal distribution and qq-plots with package car and base
+lst <- list(std.daily, std.weekly, std.monthly, std.yearly)
+lapply(lst, FUN=function(x){
+  assets <- unique(x$Asset)
+  sapply(assets, FUN=function(y){
+    string <- unique(x$Freq)
+    png(paste0(paste0("figures/return_distribution_", paste0(paste0(string, "_"), y)), ".png"))
+    dens <- density(x$Value[which(x$Asset==y)])
+    plot(dens$x, dens$y, type='l', xlab="Value", ylab="Density")
+    lines(seq(-20, 20, length.out=1e4), dnorm(seq(-20, 20, length.out=1e4)), col='red')
+    title(paste(paste("Distribution of standardized", paste(string, "returns -")), y))
+    dev.off()
+    
+    png(paste0(paste0("figures/return_qq_daily_", paste0(string, y)), ".png"))
+    qqPlot(x$Value[which(x$Asset==y)], xlab="Theoretical Quantiles", ylab="Sample Quantiles")
+    title(paste(paste("QQ-Plot of standardized", paste(string, "returns -")), y)) 
+    dev.off()
+  })
+})
