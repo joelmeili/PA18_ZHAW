@@ -573,3 +573,165 @@ Yearly
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 
 ![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-1.png)![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-2.png)
+
+- Then we used the Anderson-Darling test to measure normality of the return data on the different time horizons
+
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Asset
+</th>
+<th style="text-align:right;">
+Daily
+</th>
+<th style="text-align:right;">
+Weekly
+</th>
+<th style="text-align:right;">
+Monthly
+</th>
+<th style="text-align:right;">
+Yearly
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+DAX30
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0000000
+</td>
+<td style="text-align:right;">
+0.0174654
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EUR
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1e-07
+</td>
+<td style="text-align:right;">
+0.0332904
+</td>
+<td style="text-align:right;">
+0.6162500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gold
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0090273
+</td>
+<td style="text-align:right;">
+0.5100582
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JPY
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0439324
+</td>
+<td style="text-align:right;">
+0.1148076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oil
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0000616
+</td>
+<td style="text-align:right;">
+0.9094759
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SP500
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0000002
+</td>
+<td style="text-align:right;">
+0.0239661
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UKGilt
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0203106
+</td>
+<td style="text-align:right;">
+0.9859646
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+USTreas
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0e+00
+</td>
+<td style="text-align:right;">
+0.0265461
+</td>
+<td style="text-align:right;">
+0.9823392
+</td>
+</tr>
+</tbody>
+</table>

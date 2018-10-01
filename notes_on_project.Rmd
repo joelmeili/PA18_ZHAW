@@ -32,6 +32,11 @@ grid.arrange(qq.daily, qq.weekly, qq.monthly, qq.yearly, nrow=2)
 
 ```
 
+- Then we used the Anderson-Darling test to measure normality of the return data on the different time horizons
+
+```{r echo=F}
+p.values %>% kable() %>% kable_styling()
+```
 
 
 

@@ -3,6 +3,18 @@
 # meilijoe@students.zhaw.ch
 # ----------------------------
 
+# --------------------------------------------------------
+# IMPORTANT NOTES:
+# ----------------
+# - should we use log-returns instead? --> Assumption now
+# is that returns follow a gaussian distribution
+# implement z-test for distribution testing, what is definition of z-test --> KS-test(Kolmogorov-Smirnov test), Null hypothesis
+# is defined as sample is drawn from said distribution / Anderson-Darling-Test statistic test that tests for normality 
+# -- The Anderson-Darling test is the recommended EDF test by Stephens (1986).--
+# -- Compared to the Cramer-von Mises test (as second choice) it gives more weight to the tails of the distribution. --
+# 
+# --------------------------------------------------------
+
 # - load packages
 library(readxl)
 library(tibble)
@@ -14,6 +26,7 @@ library(ggplot2)
 library(ggthemes)
 library(gridExtra)
 library(car)
+library(nortest)
 
 # - read data
 X35years <- read_excel("C:/Users/joelm/PA18_ZHAW/35years.xlsx")
@@ -163,3 +176,14 @@ lapply(lst, FUN=function(x){
     dev.off()
   })
 })
+
+# - disribution testing
+p.val.daily <- std.daily %>% group_by(Asset) %>% summarise(p.value=ad.test(Value)$p.value)
+colnames(p.val.daily)[2] <- "Daily"
+p.val.weekly <- std.weekly %>% group_by(Asset) %>% summarise(p.value=ad.test(Value)$p.value)
+colnames(p.val.weekly)[2] <- "Weekly"
+p.val.monthly <- std.monthly %>% group_by(Asset) %>% summarise(p.value=ad.test(Value)$p.value)
+colnames(p.val.monthly)[2] <- "Monthly"
+p.val.yearly <- std.yearly %>% group_by(Asset) %>% summarise(p.value=ad.test(Value)$p.value)
+colnames(p.val.yearly)[2] <- "Yearly"
+p.values <- list(p.val.daily, p.val.weekly, p.val.monthly, p.val.yearly) %>% reduce(inner_join, by="Asset")
