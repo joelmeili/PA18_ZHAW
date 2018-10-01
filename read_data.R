@@ -74,13 +74,13 @@ norm.weekly <- data.weekly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=
 norm.monthly <- data.monthly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=sd(Value))
 norm.yearly <- data.yearly %>% group_by(Asset) %>% summarise(mu=mean(Value), sd=sd(Value))
 
-std.daily$Value <- (std.daily$Value-mean(std.daily$Value))/sd(std.daily$Value)
+std.daily <- std.daily %>% group_by(Asset) %>% mutate(Value=scale(Value))
 std.daily$Freq <- "daily"
-std.weekly$Value <- (std.weekly$Value-mean(std.weekly$Value))/sd(std.weekly$Value)
+std.weekly <- std.weekly %>% group_by(Asset) %>% mutate(Value=scale(Value))
 std.weekly$Freq <- "weekly"
-std.monthly$Value <- (std.monthly$Value-mean(std.monthly$Value))/sd(std.monthly$Value)
+std.monthly <- std.monthly %>% group_by(Asset) %>% mutate(Value=scale(Value))
 std.monthly$Freq <- "monthly"
-std.yearly$Value <- (std.yearly$Value-mean(std.yearly$Value))/sd(std.yearly$Value)
+std.yearly <- std.yearly %>% group_by(Asset) %>% mutate(Value=scale(Value))
 std.yearly$Freq <- "yearly"
 
 # - standardized distribution plots
@@ -189,13 +189,6 @@ p.val.yearly <- std.yearly %>% group_by(Asset) %>% summarise(p.value=ad.test(Val
 colnames(p.val.yearly)[2] <- "Yearly"
 p.values <- list(p.val.daily, p.val.weekly, p.val.monthly, p.val.yearly) %>% reduce(inner_join, by="Asset")
 
-location <- seq(-1, 1, length.out = 1e1)
-scale <- seq(-5, 5, length.out=1e1)
-test <- sapply(scale, FUN=function(x){
-  sapply(location, FUN=function(y){
-    list(data.frame("Location"=y, "Scale"=x))
-  })
-})
 
 
 

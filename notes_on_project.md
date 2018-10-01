@@ -569,6 +569,7 @@ Yearly
 </tr>
 </tbody>
 </table>
+
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 
 ![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-1.png)![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-2.png)
