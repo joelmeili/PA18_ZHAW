@@ -38,6 +38,7 @@ grid.arrange(qq.daily, qq.weekly, qq.monthly, qq.yearly, nrow=2)
 p.values %>% kable() %>% kable_styling()
 ```
 
-
+- We observed that as the time horizon gets larger, the distribution of returns gets closer to a normal distribution
+- Especially for daily returns a normal distribution does not cover extreme observations enough therefore we have to use a heavy-tailed-distribution to model the returns e.g. cauchy-distribution, levy-distribution and student-t-distribution
 
 

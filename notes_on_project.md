@@ -569,12 +569,11 @@ Yearly
 </tr>
 </tbody>
 </table>
-
 -   Then we calculated the distribution of e.g. daily returns on all asset classes and then compared it with a normal distribution
 
 ![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-1.png)![](notes_on_project_files/figure-markdown_github/unnamed-chunk-2-2.png)
 
-- Then we used the Anderson-Darling test to measure normality of the return data on the different time horizons
+-   Then we used the Anderson-Darling test to measure normality of the return data on the different time horizons
 
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -735,3 +734,6 @@ USTreas
 </tr>
 </tbody>
 </table>
+
+-   We observed that as the time horizon gets larger, the distribution of returns gets closer to a normal distribution
+-   Especially for daily returns a normal distribution does not cover extreme observations enough therefore we have to use a heavy-tailed-distribution to model the returns e.g. cauchy-distribution, levy-distribution and student-t-distribution
